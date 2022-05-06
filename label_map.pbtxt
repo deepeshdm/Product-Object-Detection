@@ -1,0 +1,34 @@
+item {
+    id: 1
+    name: 'Beer Opener'
+}
+
+item {
+    id: 2
+    name: 'Charging Cable'
+}
+
+item {
+    id: 3
+    name: 'ETUI'
+}
+
+item {
+    id: 4
+    name: 'Red Case'
+}
+
+item {
+    id: 5
+    name: 'White Case'
+}
+
+item {
+    id: 6
+    name: 'USB Stick'
+}
+
+item {
+    id: 7
+    name: 'Webcam Cover'
+}
