@@ -65,7 +65,7 @@ cv2.waitKey(0)
 
 The Web Interface is made using streamlit, you can run it locally by executing the following commands :
 
-**🔥 Official Website :** https://share.streamlit.io/deepeshdm/realtime_face_detection/main.py
+**🔥 Official Website :** https://share.streamlit.io/deepeshdm/product-object-detection/User_Interface.py
 
 <div align="center">
   <img src="/examples/ui.png"  width="90%"/>
