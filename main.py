@@ -1,14 +1,5 @@
-
 import cv2
 from API import make_detection
-
-classes = ["Beer Opener",
-            "Charging Cable",
-            "ETUI",
-            "Red Case",
-            "USB Stick",
-            "Webcam Cover",
-            "White Case","test"]
 
 # Path to Input image. NOTE : Minimum image size is 420x420
 IMAGE_PATH = "C:/Users/Deepesh/Desktop/fiverr/training_demo/images/train/test_6.jpeg"

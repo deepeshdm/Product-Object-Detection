@@ -1,4 +1,3 @@
-
 import tensorflow as tf
 tf.gfile = tf.io.gfile
 import time
@@ -44,7 +43,7 @@ def make_detection(IMG_PATH, MODEL_PATH, LABELS_PATH):
 
     # Resize image to 420x420
     print("Resizing image to 420x420")
-    image = cv2.resize(image, (420,420))
+    image = cv2.resize(image, (420, 420))
 
     # The input needs to be a tensor, convert it using `tf.convert_to_tensor`.
     input_tensor = tf.convert_to_tensor(image)
