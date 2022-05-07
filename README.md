@@ -61,7 +61,35 @@ cv2.imshow("RESULT", OUTPUT_IMG)
 cv2.waitKey(0)
 ```
 
+## Web Interface
 
+The Web Interface is made using streamlit, you can run it locally by executing the following commands :
+
+**🔥 Official Website :** https://share.streamlit.io/deepeshdm/realtime_face_detection/main.py
+
+<div align="center">
+  <img src="/examples/ui.png"  width="90%"/>
+</div>
+<br/>
+
+
+1. Git clone the repository on your system. This will download the pre-trained model and required files on your computer.
+```
+git clone https://github.com/deepeshdm/Product-Object-Detection.git
+```
+
+2. Install the required dependencies to run the app
+```
+cd Product-Object-Detection
+
+pip install -r requirements.txt
+```
+
+3. Start the streamlit server on specified port
+
+```
+streamlit run User_Interface.py --server.port 4000
+```
 
 
 
