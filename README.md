@@ -32,92 +32,38 @@ python main.py
 ## Usage Description
 
 
-The "API.py" python script contains 3 main functions responsible for object detections :
-
-1. detect_pastries( )
-
-This function is straight-forward, it takes the path of an Image with other parameters , detects the pastries present in the image and draws bounding boxes around them,after that it simply displays the output Image. It does'nt return anything else.
+The "main.py" python script is where we define the essentials like trained-model path, labelmap path ,Input image path etc. You need to pass the required values as per your system's file system. All the files are included in this repository.
 
 ```python
-# Path to Input Image
-IMAGE_PATH = 'C:/Users/dipesh/Desktop/fiverr-hasijayawardana/train/IMG_0008.JPG'
-
-# Path to pre-trained model
-SAVED_MODEL_PATH = r'C:/Users/dipesh/Desktop/fiverr-hasijayawardana/Pastry Detection/saved_model'
-
-# Path to 'label_map.pbtxt' file
-PATH_TO_LABELS = 'C:/Users/dipesh/Desktop/fiverr-hasijayawardana/Pastry Detection/label_map.pbtxt'
-
-# Object detection threshold
-THRESHOLD = 0.5
-
-# Path to save the output Image with name and extension
-SAVE_PATH = r"C:/Users/dipesh/Desktop/fiverr-hasijayawardana/outputs/output.jpeg"
-
-from API import detect_pastries
-detect_pastries(IMAGE_PATH, SAVED_MODEL_PATH, PATH_TO_LABELS,THRESHOLD,SAVE_PATH)
-```
-   
-2. detect_objects( )
-
-This function takes the path of an Image with other parameters , detects the pastries present in the image and draws bounding boxes around them,after that it does'nt display the Image like the above function. It returns 2 things,first the output image as numpy array and second it returns a dictionary of Top 10 objects detected by the model with their scores,this dictionary object can be used during production for some other task where we want to process the output,like the billing system.
-
-
-```python
-# Path to Input Image
-IMAGE_PATH = 'C:/Users/dipesh/Desktop/fiverr-hasijayawardana/train/IMG_0008.JPG'
-
-# Path to pre-trained model
-SAVED_MODEL_PATH = r'C:/Users/dipesh/Desktop/fiverr-hasijayawardana/Pastry Detection/saved_model'
-
-# Path to 'label_map.pbtxt' file
-PATH_TO_LABELS = 'C:/Users/dipesh/Desktop/fiverr-hasijayawardana/Pastry Detection/label_map.pbtxt'
-
-# Object detection threshold
-THRESHOLD = 0.5
-
-# Path to save the output Image with name and extension
-SAVE_PATH = r"C:/Users/dipesh/Desktop/fiverr-hasijayawardana/outputs/output.jpeg"
-
 import cv2
-from API import detect_objects
+from API import make_detection
 
-# Numpy array of output Image and Dictionary of Top 10 detected objects with scores
-Output_Image, Detected_Objects = detect_objects(IMAGE_PATH, SAVED_MODEL_PATH, PATH_TO_LABELS, THRESHOLD)
+# Path to Input image. NOTE : Minimum image size is 420x420
+IMAGE_PATH = "C:/Users/Deepesh/Desktop/fiverr/training_demo/images/train/test_6.jpeg"
 
-print(Detected_Objects)
-cv2.imshow("OUTPUT", Output_Image)
-cv2.waitKey()
-```
+# Path to LabelMap file
+LABELS_PATH = "C:/Users/Deepesh/Desktop/Product Detection/label_map.pbtxt"
 
-3. detect_webcam( ) 
+# Path to pre-trained model 
+MODEL_PATH = "C:/Users/Deepesh/Desktop/Product Detection/trained-model/saved_model"
 
-This function is for the webcam object detection. When you execute this function,It'll automatically activate the webcam and start detecting objects frame by frame. The current speed is 3FPS,but can be further increased by running on GPU/TPU and reducing preprocessing/postprocessing of the Images.
+# -----------------------------------------------------------------
 
-```python
-from API import detect_webcam
-import tensorflow as tf
+OUTPUT_IMG = make_detection(IMAGE_PATH, MODEL_PATH, LABELS_PATH)
 
-# Path to pre-trained model
-SAVED_MODEL_PATH = \
-    r'C:\Users\dipesh\fiverr-hasijayawardana-object-detector\saved_model'
+# SAVE OUTPUT IMAGE
+print("Saving the output image locally...")
+Save_Path = "product_detection.jpg"
+cv2.imwrite(Save_Path, OUTPUT_IMG)
 
-# Path to 'label_map.pbtxt' file
-PATH_TO_LABELS = \
-    r'C:\Users\dipesh\fiverr-hasijayawardana-object-detector\label_map.pbtxt'
-
-# Object detection threshold
-THRESHOLD = 0.5
-
-# LOAD SAVED MODEL AND BUILD DETECTION FUNCTION
-print("Loading model...this will take a minute")
-detect_fn = tf.saved_model.load(SAVED_MODEL_PATH)
-
-detect_webcam(detect_fn, PATH_TO_LABELS, THRESHOLD)
+# DISPLAY OUTPUT
+cv2.imshow("RESULT", OUTPUT_IMG)
+cv2.waitKey(0)
 ```
 
 
-### NOTE : When you execute the python files, keep an eye on the terminal , it'll print the logs while the model is detecting objects.
+
+
 
 ## Important
 
