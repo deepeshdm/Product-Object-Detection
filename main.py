@@ -4,9 +4,10 @@ from API import make_detection
 # Path to Input image. NOTE : Minimum image size is 420x420
 IMAGE_PATH = "C:/Users/Deepesh/Desktop/fiverr/training_demo/images/train/test_6.jpeg"
 
-# PROVIDE PATH TO LABEL MAP
+# Path to LabelMap file
 LABELS_PATH = "C:/Users/Deepesh/Desktop/Product Detection/label_map.pbtxt"
 
+# Path to pre-trained model 
 MODEL_PATH = "C:/Users/Deepesh/Desktop/Product Detection/trained-model/saved_model"
 
 # -----------------------------------------------------------------
